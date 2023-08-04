@@ -1,0 +1,27 @@
+{% if current_user.is_authenticated %}
+    <h1>Welcome, {{ current_user.username }}!</h1>
+    <a href="{{ url_for('logout') }}">Logout</a>
+    <h2>Users:</h2>
+    <ul>
+    {% for user in users %}
+        <li>{{ user.username }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <div>
+            {{ form.username.label }} {{ form.username() }}
+        </div>
+        <div>
+            {{ form.password.label }} {{ form.password() }}
+        </div>
+        <div>
+            {{ form.remember_me() }} {{ form.remember_me.label }}
+        </div>
+        <div>
+            {{ form.submit() }}
+        </div>
+    </form>
+    <p>New User? <a href="{{ url_for('register') }}">Register here</a></p>
+{% endif %}
