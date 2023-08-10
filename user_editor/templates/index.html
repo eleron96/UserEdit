@@ -1,27 +1,20 @@
-{% if current_user.is_authenticated %}
-    <h1>Welcome, {{ current_user.username }}!</h1>
-    <a href="{{ url_for('logout') }}">Logout</a>
-    <h2>Users:</h2>
-    <ul>
-    {% for user in users %}
-        <li>{{ user.username }}</li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <form method="POST">
-        {{ form.hidden_tag() }}
-        <div>
-            {{ form.username.label }} {{ form.username() }}
-        </div>
-        <div>
-            {{ form.password.label }} {{ form.password() }}
-        </div>
-        <div>
-            {{ form.remember_me() }} {{ form.remember_me.label }}
-        </div>
-        <div>
-            {{ form.submit() }}
-        </div>
-    </form>
-    <p>New User? <a href="{{ url_for('register') }}">Register here</a></p>
-{% endif %}
+{% extends 'main_sample/base.html'%}
+
+{% block title %}
+Главная страница
+{% endblock %}
+
+{% block content %}
+
+<div class="container col-xl-10 col-xxl-8 px-2 py-2">
+    <div class="row align-items-center g-lg-2 py-5">
+      <div class="col-lg-auto text-center text-lg-start">
+        <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">Сервис "Пользователи"</h1>
+        <p class="col-lg-auto fs-4">На данном ресурсе можно создать пользователя и посмотреть список созданных в
+        разделе "Пользователи"</p>
+      </div>
+    </div>
+</div>
+
+{% endblock %}
+

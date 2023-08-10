@@ -1,2 +1,3 @@
 run:
-	poetry run python user_editor/app.py
+	poetry run python -m user_editor.app
+

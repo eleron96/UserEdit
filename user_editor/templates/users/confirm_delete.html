@@ -1,0 +1,10 @@
+{% extends 'main_sample/base.html' %}
+
+{% block content %}
+    <h2>Подтверждение удаления</h2>
+    <p>Вы действительно хотите удалить пользователя {{ user.username }}?</p>
+    <form action="{{ url_for('delete_user', user_id=user.id) }}" method="post">
+        <button type="submit" class="btn btn-danger">Удалить</button>
+        <a href="{{ url_for('users_list') }}" class="btn btn-secondary">Отмена</a>
+    </form>
+{% endblock %}
