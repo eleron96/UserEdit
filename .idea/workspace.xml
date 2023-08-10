@@ -4,25 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0237c227-985c-4006-959b-7a1f587f1c79" name="Changes" comment="First">
-      <change afterPath="$PROJECT_DIR$/user_editor/db.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user_editor/models/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user_editor/models/user.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user_editor/templates/main_sample/base.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user_editor/templates/main_sample/footer.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user_editor/templates/main_sample/header.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user_editor/templates/users/confirm_delete.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user_editor/templates/users/edit_user.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user_editor/templates/users/users_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/poetry.lock" beforeDir="false" afterPath="$PROJECT_DIR$/poetry.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_editor/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_editor/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_editor/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/user_editor/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_editor/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/user_editor/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_editor/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/user_editor/templates/register.html" afterDir="false" />
-    </list>
+    <list default="true" id="0237c227-985c-4006-959b-7a1f587f1c79" name="Changes" comment="First" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
