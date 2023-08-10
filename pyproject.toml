@@ -7,7 +7,7 @@ readme = "README.md"
 packages = [{include = "user_editor"}]
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.7"
 flask = "^2.3.2"
 fastapi = "^0.100.1"
 flask-login = "^0.6.2"
