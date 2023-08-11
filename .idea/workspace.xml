@@ -4,7 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0237c227-985c-4006-959b-7a1f587f1c79" name="Changes" comment="First" />
+    <list default="true" id="0237c227-985c-4006-959b-7a1f587f1c79" name="Changes" comment="First">
+      <change afterPath="$PROJECT_DIR$/user_editor/templates/users/add_user.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_editor/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_editor/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_editor/migrations/versions/12d344a9fafd_added_user_table.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_editor/migrations/versions/15e9626e8a05_added_user_table.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_editor/migrations/versions/282662eaa959_added_user_table.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_editor/migrations/versions/776146360cef_added_user_table.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_editor/migrations/versions/c83a3987aec4_added_user_table.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_editor/migrations/versions/cbfb208bfd59_added_user_table.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_editor/migrations/versions/e57146314e8c_added_user_table.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_editor/models/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_editor/models/user.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_editor/templates/users/edit_user.html" beforeDir="false" afterPath="$PROJECT_DIR$/user_editor/templates/users/edit_user.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_editor/templates/users/users_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/user_editor/templates/users/users_list.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
