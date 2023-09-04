@@ -8,24 +8,29 @@ from sqlalchemy.orm import sessionmaker
 from user_editor.db import BaseDBModel
 from user_editor.models import User
 
-app = Flask(__name__)
-app.secret_key = 'your_secret_key'  # это нужно для работы с flash сообщениями
+from decouple import config
 
-# Подключаемся к базе данных
-DATABASE_URL = "postgresql://nikogamsahurdia:password@localhost:5432/user_editor"
+app = Flask(__name__)
+# app.secret_key = 'your_secret_key'  # это нужно для работы с flash сообщениями
+#
+# # Подключаемся к базе данных
+# DATABASE_URL = "postgresql://nikogamsahurdia:password@localhost:5432/user_editor"
+
+app.secret_key = config('SECRET_KEY', default='your_default_secret_key')
+DATABASE_URL = config('DATABASE_URL', default='your_default_database_url')
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(bind=engine)
 
 
 @app.route('/')
-def main():
+async def main():
     username = session.get('username',
                            None)  # Получаем имя пользователя из сессии
     return render_template('index.html')
 
 
 @app.route('/registration', methods=['GET', 'POST'])
-def register():
+async def register():
     if request.method == 'POST':
         # Получаем данные из формы
         username = request.form.get('username')
@@ -58,7 +63,7 @@ def register():
 
 
 @app.route('/add-user', methods=['GET', 'POST'])
-def add_user():
+async def add_user():
     if not session.get('logged_in'):
         flash("Пожалуйста, войдите в систему для доступа к этой странице!",
               "danger")
@@ -88,7 +93,7 @@ def add_user():
 
         new_user = User(username=username, email=email,
                         password=hashed_password)
-        roles = request.form.getlist('roles')
+        roles = request.form.getlist('roles') # проверить
         new_user.roles = ','.join(roles)
         new_user.is_admin = 'is_admin' in request.form
         new_user.is_editor = 'is_editor' in request.form
@@ -155,7 +160,7 @@ def current_user_can_create():
 
 
 @app.route('/login', methods=['GET', 'POST'])
-def login():
+async def login():
     if request.method == 'POST':
         username = request.form.get('username')
         password = request.form.get('password')
@@ -179,14 +184,14 @@ def login():
 
 
 @app.route('/logout')
-def logout():
+async def logout():
     session.pop('logged_in', None)
     flash('Вы успешно вышли из системы!', 'success')
     return redirect(url_for('main'))
 
 
 @app.route('/users')
-def users_list():
+async def users_list():
     if not session.get('logged_in'):
         flash("Пожалуйста, войдите в систему для доступа к этой странице!",
               "danger")

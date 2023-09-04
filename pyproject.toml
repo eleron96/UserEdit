@@ -8,7 +8,7 @@ packages = [{include = "user_editor"}]
 
 [tool.poetry.dependencies]
 python = "^3.7"
-flask = "^2.2"
+flask = { version = "^2.2", extras = ["async"] }
 fastapi = "^0.100.1"
 flask-login = "^0.6.2"
 flask-sqlalchemy = "^3.0.5"
@@ -17,6 +17,9 @@ flask-wtf = "^1.1.1"
 psycopg2 = "^2.9.7"
 alembic = "^1.11.2"
 bcrypt = "^4.0.1"
+asyncio = "^3.4.3"
+aiohttp = "^3.8.5"
+python-decouple = "^3.8"
 
 
 [build-system]
