@@ -20,7 +20,8 @@ app.secret_key = config('SECRET_KEY', default='your_default_secret_key')
 DATABASE_URL = config('DATABASE_URL', default='your_default_database_url')
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(bind=engine)
-
+SessionGlobal = sessionmaker(bind=engine)
+db_session = SessionGlobal()
 
 @app.route('/')
 async def main():
@@ -46,7 +47,6 @@ async def register():
                         password=hashed_password)
 
         # Добавляем пользователя в базу данных
-        db_session = SessionLocal()
 
         try:
             db_session.add(new_user)
@@ -75,7 +75,6 @@ async def add_user():
         return redirect(url_for('main'))
 
     if request.method == 'POST':
-        db_session = SessionLocal()
 
         username = request.form.get('username')
         existing_user = db_session.query(User).filter_by(
@@ -115,7 +114,6 @@ async def add_user():
 
 
 def create_super_user():
-    db_session = SessionLocal()
 
     # Проверка наличия пользователя с именем admin в базе данных
     super_user = db_session.query(User).filter_by(username='admin').first()
@@ -141,19 +139,16 @@ def is_admin(user):
     return user.is_admin
 
 def current_user_is_editor():
-    db_session = SessionLocal()
     current_user = db_session.query(User).filter_by(username=session['username']).first()
     db_session.close()
     return current_user.is_editor if current_user else False
 
 def current_user_is_admin():
-    db_session = SessionLocal()
     current_user = db_session.query(User).filter_by(username=session['username']).first()
     db_session.close()
     return current_user.is_admin if current_user else False
 
 def current_user_can_create():
-    db_session = SessionLocal()
     current_user = db_session.query(User).filter_by(username=session['username']).first()
     db_session.close()
     return current_user.can_create_users if current_user else False
@@ -165,7 +160,6 @@ async def login():
         username = request.form.get('username')
         password = request.form.get('password')
 
-        db_session = SessionLocal()
         user = db_session.query(User).filter_by(username=username).first()
 
         if user and bcrypt.checkpw(password.encode('utf-8'),
@@ -197,7 +191,6 @@ async def users_list():
               "danger")
         return redirect(url_for('login'))
 
-    db_session = SessionLocal()
     # users = db_session.query(User).all() # Отображение всех пользователей
     users = db_session.query(User).filter(User.username != 'admin').all() # Отображение всех пользователей кроме админа
     db_session.close()
@@ -210,7 +203,6 @@ def edit_user(user_id):
         flash("У вас нет прав для редактирования этого пользователя!", "danger")
         return redirect(url_for('users_list'))
 
-    db_session = SessionLocal()
     user = db_session.query(User).filter_by(id=user_id).first()
 
     if not user:
@@ -263,7 +255,6 @@ def delete_user(user_id):
         flash("Только администратор может удалять пользователей!", "danger")
         return redirect(url_for('users_list'))
 
-    db_session = SessionLocal()
     user = db_session.query(User).filter_by(id=user_id).first()
 
     if not user:
