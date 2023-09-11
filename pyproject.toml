@@ -20,6 +20,8 @@ bcrypt = "^4.0.1"
 asyncio = "^3.4.3"
 aiohttp = "^3.8.5"
 python-decouple = "^3.8"
+sqlalchemy = {extras = ["asyncio"], version = "^2.0.20"}
+asyncpg = "^0.28.0"
 
 
 [build-system]
