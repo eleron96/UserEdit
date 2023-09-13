@@ -7,7 +7,6 @@
     <list default="true" id="0237c227-985c-4006-959b-7a1f587f1c79" name="Changes" comment="First">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user_editor/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_editor/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_editor/templates/users/users_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/user_editor/templates/users/users_list.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

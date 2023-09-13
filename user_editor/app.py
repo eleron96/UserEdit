@@ -6,6 +6,7 @@ from flask import Flask, render_template, request, redirect, url_for, flash, \
     session as flask_session
 from sqlalchemy import select
 from sqlalchemy.exc import IntegrityError
+from sqlalchemy.orm import load_only
 
 from user_editor.db import BaseDBModel, get_session, engine
 from user_editor.models import User
@@ -185,8 +186,15 @@ async def users_list():
               "danger")
         return redirect(url_for('login'))
 
+    # async with get_session() as db_session:
+    #     result = await db_session.execute(select(User).where(User.username != 'admin'))
+    #     users = result.scalars().all()  # Получаем всех пользователей, кроме админа
+
     async with get_session() as db_session:
-        result = await db_session.execute(select(User).where(User.username != 'admin'))
+        result = await db_session.execute(
+            select(User).options(load_only("id", "username")).where(
+                User.username != 'admin')
+        )
         users = result.scalars().all()  # Получаем всех пользователей, кроме админа
 
     return render_template('users/users_list.html', users=users)
