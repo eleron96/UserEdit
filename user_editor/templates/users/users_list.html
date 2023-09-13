@@ -22,45 +22,50 @@
         </tbody>
     </table>
 
-    {% for user in  users %}
-    <div class="modal fade" id="userModal-{{ user.id }}" tabindex="-1" aria-labelledby="userModalLabel-{{ user.id }}" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="userModalLabel-{{ user.id }}">Информация о {{ user.username }}</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <strong>Имя пользователя:</strong> {{ user.username }}<br>
-                    <strong>Email:</strong> {{ user.email }}
-                </div>
+    {% if users %}
+        {% for user in  users %}
+        <div class="modal fade" id="userModal-{{ user.id }}" tabindex="-1" aria-labelledby="userModalLabel-{{ user.id }}" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="userModalLabel-{{ user.id }}">Информация о {{ user.username }}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <strong>Имя пользователя:</strong> {{ user.username }}<br>
+                        <strong>Email:</strong> {{ user.email }}
+                    </div>
 
-                <div class="user-roles  d-flex justify-content-left py-2 pl-3">
-                    {% if user.is_admin %}
-                        <span class="badge bg-danger text-white rounded-pill mr-1">Удаление</span>
-                    {% endif %}
-                    {% if user.is_editor %}
-                        <span class="badge bg-warning text-white rounded-pill mr-1">Редактирование</span>
-                    {% endif %}
-                    {% if user.can_create_users %}
-                        <span class="badge bg-primary text-white rounded-pill mr-1">Создание</span>
-                    {% endif %}
-                    <!-- Добавьте сюда другие роли по мере необходимости -->
+                    <div class="user-roles  d-flex justify-content-left py-2 pl-3">
+                        {% if user.is_admin %}
+                            <span class="badge bg-danger text-white rounded-pill mr-1">Удаление</span>
+                        {% endif %}
+                        {% if user.is_editor %}
+                            <span class="badge bg-warning text-white rounded-pill mr-1">Редактирование</span>
+                        {% endif %}
+                        {% if user.can_create_users %}
+                            <span class="badge bg-primary text-white rounded-pill mr-1">Создание</span>
+                        {% endif %}
+                        <!-- Добавьте сюда другие роли по мере необходимости -->
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                        <a href="{{ url_for('edit_user', user_id=user.id) }}" class="btn btn-warning">Изменить</a>
+                        <a href="{{ url_for('delete_user', user_id=user.id) }}" class="btn btn-danger">Удалить</a>
+
+                    </div>
+
                 </div>
-
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
-                    <a href="{{ url_for('edit_user', user_id=user.id) }}" class="btn btn-warning">Изменить</a>
-                    <a href="{{ url_for('delete_user', user_id=user.id) }}" class="btn btn-danger">Удалить</a>
-
-                </div>
-
             </div>
         </div>
-    </div>
-{% endfor %}
+        {% endfor %}
+    {% else %}
+        <p>Нет пользователей для отображения.</p>
+    {% endif %}
+
 
 {% endblock %}
 

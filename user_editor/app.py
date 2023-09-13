@@ -186,7 +186,6 @@ async def users_list():
         return redirect(url_for('login'))
 
     async with get_session() as db_session:
-        # users = db_session.query(User).all() # Отображение всех пользователей
         users = db_session.query(User).filter(
             User.username != 'admin').all()  # Отображение всех пользователей кроме админа
     return render_template('users/users_list.html', users=users)
