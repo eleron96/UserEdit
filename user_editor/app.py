@@ -19,6 +19,7 @@ app.secret_key = config('SECRET_KEY', default='your_default_secret_key')
 # engine = create_async_engine(DATABASE_URL)
 # db_session = async_sessionmaker(bind=engine)
 
+
 @app.route('/')
 async def main():
     username = flask_session.get('username',
@@ -155,17 +156,19 @@ async def login():
     password = request.form.get('password')
 
     async with get_session() as db_session:
-        user = db_session.query(User).filter_by(username=username).first()
+        query_user = await db_session.execute(select(User).where(User.username == username))
+        user = query_user.scalars().first()
+        # user = await db_session.query(User).filter_by(username=username).first()
 
-    if user and bcrypt.checkpw(password.encode('utf-8'),
-                               user.password.encode('utf-8')):
-        flask_session['logged_in'] = True
-        flask_session[
-            'username'] = user.username  # Сохраняем имя пользователя в сессии
-        flash('Вы успешно вошли в систему!', 'success')
-        return redirect(url_for('main'))
-    else:
-        flash('Неверное имя пользователя или пароль!', 'danger')
+        if user and bcrypt.checkpw(password.encode('utf-8'),
+                                   user.password.encode('utf-8')):
+            flask_session['logged_in'] = True
+            flask_session[
+                'username'] = user.username  # Сохраняем имя пользователя в сессии
+            flash('Вы успешно вошли в систему!', 'success')
+            return redirect(url_for('main'))
+        else:
+            flash('Неверное имя пользователя или пароль!', 'danger')
 
 
 @app.route('/logout')
@@ -274,8 +277,8 @@ async def init_tables():
 
 
 if __name__ == '__main__':
-    loop = asyncio.get_event_loop()
-    loop.run_until_complete(init_tables())
-    loop.run_until_complete(create_super_user())
+    # loop = asyncio.get_event_loop()
+    # loop.run_until_complete(init_tables())
+    # loop.run_until_complete(create_super_user())
 
     app.run(debug=True)

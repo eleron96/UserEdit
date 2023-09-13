@@ -6,10 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="0237c227-985c-4006-959b-7a1f587f1c79" name="Changes" comment="First">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/poetry.lock" beforeDir="false" afterPath="$PROJECT_DIR$/poetry.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user_editor/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_editor/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user_editor/db.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_editor/db.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_editor/migrations/versions/f29f7ded5de4_added_user_table.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,6 +82,24 @@
       </makefile>
       <method v="2" />
     </configuration>
+    <configuration name="db_downgrade" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/Makefile" target="db_downgrade" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+      <method v="2" />
+    </configuration>
+    <configuration name="db_upgrade" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/Makefile" target="db_upgrade" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+      <method v="2" />
+    </configuration>
+    <configuration name="migrations" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/Makefile" target="migrations" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+      <method v="2" />
+    </configuration>
     <configuration name="run" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
       <makefile filename="$PROJECT_DIR$/Makefile" target="run" workingDirectory="" arguments="">
         <envs />
@@ -91,6 +109,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Makefile Target.run" />
+        <item itemvalue="Makefile Target.db_upgrade" />
+        <item itemvalue="Makefile Target.migrations" />
+        <item itemvalue="Makefile Target.db_downgrade" />
         <item itemvalue="Makefile Target.Run" />
       </list>
     </recent_temporary>
