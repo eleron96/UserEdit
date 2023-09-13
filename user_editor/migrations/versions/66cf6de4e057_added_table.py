@@ -36,7 +36,8 @@ def upgrade() -> None:
     conn = op.get_bind()
 
     # Создаем хешированный пароль
-    hashed_password = bcrypt.hashpw("admin".encode('utf-8'), bcrypt.gensalt())
+    hashed_password = bcrypt.hashpw("admin".encode('utf-8'),
+                                    bcrypt.gensalt()).decode('utf-8')
 
     # Добавляем пользователя admin с полными правами
     conn.execute(

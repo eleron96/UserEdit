@@ -102,23 +102,23 @@ async def add_user():
         flash(f"Ошибка при добавлении пользователя: {str(e)}", "danger")
 
 
-async def create_super_user():
-    async with get_session() as db_session:
-        # Проверка наличия пользователя с именем admin в базе данных
-        query_user = await db_session.execute(select(User).where(User.username == 'admin'))
-        super_user = query_user.scalars().first()
-
-        if super_user:
-            return
-            # Хеширование пароля
-        hashed_password = bcrypt.hashpw('admin'.encode('utf-8'),
-                                        bcrypt.gensalt()).decode('utf-8')
-
-        # Создание суперпользователя
-        super_user = User(username='admin', email='admin@admin.com',
-                          password=hashed_password, is_admin=True,
-                          is_editor=True, can_create_users=True)
-        db_session.add(super_user)
+# async def create_super_user():
+#     async with get_session() as db_session:
+#         # Проверка наличия пользователя с именем admin в базе данных
+#         query_user = await db_session.execute(select(User).where(User.username == 'admin'))
+#         super_user = query_user.scalars().first()
+#
+#         if super_user:
+#             return
+#             # Хеширование пароля
+#         hashed_password = bcrypt.hashpw('admin'.encode('utf-8'),
+#                                         bcrypt.gensalt()).decode('utf-8')
+#
+#         # Создание суперпользователя
+#         super_user = User(username='admin', email='admin@admin.com',
+#                           password=hashed_password, is_admin=True,
+#                           is_editor=True, can_create_users=True)
+#         db_session.add(super_user)
 
 
 def is_editor(user):

@@ -8,4 +8,3 @@ db_upgrade:
 	poetry run alembic upgrade head
 db_downgrade:
 	poetry run alembic downgrade -1
-
