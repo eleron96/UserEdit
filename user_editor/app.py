@@ -73,8 +73,8 @@ async def add_user():
 
     username = request.form.get('username')
     async with get_session() as session:
-        existing_user = session.query(User).filter_by(
-            username=username).first()
+        result = await session.execute(select(User).where(User.username == username))
+        existing_user = result.scalars().first()
 
     if existing_user:
         flash("Пользователь с таким именем уже существует!", "danger")
@@ -186,8 +186,9 @@ async def users_list():
         return redirect(url_for('login'))
 
     async with get_session() as db_session:
-        users = db_session.query(User).filter(
-            User.username != 'admin').all()  # Отображение всех пользователей кроме админа
+        result = await db_session.execute(select(User).where(User.username != 'admin'))
+        users = result.scalars().all()  # Получаем всех пользователей, кроме админа
+
     return render_template('users/users_list.html', users=users)
 
 
