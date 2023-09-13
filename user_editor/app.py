@@ -192,7 +192,7 @@ async def users_list():
 
     async with get_session() as db_session:
         result = await db_session.execute(
-            select(User).options(load_only("id", "username")).where(
+            select(User).options(load_only(User.id, User.username)).where(
                 User.username != 'admin')
         )
         users = result.scalars().all()  # Получаем всех пользователей, кроме админа
