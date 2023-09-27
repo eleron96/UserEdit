@@ -8,7 +8,7 @@ from sqlalchemy import select
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import load_only
 
-from user_editor.db import BaseDBModel, get_session, engine
+from user_editor.db import BaseDBModel, get_session, engine, async_session
 from user_editor.models import User
 
 app = Flask(__name__)
@@ -73,7 +73,7 @@ async def add_user():
         return render_template('users/add_user.html')
 
     username = request.form.get('username')
-    async with get_session() as session:
+    async with async_session() as session:
         result = await session.execute(select(User).where(User.username == username))
         existing_user = result.scalars().first()
 
@@ -197,8 +197,11 @@ async def users_list():
         )
         users = result.scalars().all()  # Получаем всех пользователей, кроме админа
 
-    return render_template('users/users_list.html', users=users)
+        users_data = [{"id": user.id, "username": user.username} for user in
+                      users]  # Создаем список словарей
 
+    return render_template('users/users_list.html',
+                           users=users_data)  # Передаем список словарей в шаблон
 
 @app.route('/edit-user/<int:user_id>', methods=['GET', 'POST'])
 async def edit_user(user_id):
@@ -283,10 +286,12 @@ async def init_tables():
     async with engine.begin() as conn:
         await conn.run_sync(BaseDBModel.metadata.create_all)
 
+def main():
+    app.run(debug=True, port=8000)
 
 if __name__ == '__main__':
     # loop = asyncio.get_event_loop()
     # loop.run_until_complete(init_tables())
     # loop.run_until_complete(create_super_user())
 
-    app.run(debug=True)
+    main()

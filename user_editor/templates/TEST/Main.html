@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ru">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+         rel="stylesheet">
+      <link rel="stylesheet" href="styles.css">
+   </head>
+   <body>
+      <header>
+         <div class="logo">СПИЧ +</div>
+         <div class="user-menu">
+            <div>Пользователь</div>
+            <div class="user-hamburger-menu">
+               <div></div>
+               <div></div>
+               <div></div>
+            </div>
+         </div>
+      </header>
+      <nav class="sidebar">
+         <a href="/" class="d-flex align-items-center mb-3 text-decoration-none">
+         </a>
+         <hr>
+         <select class="form-select d-flex align-items-center mb-3 text-decoration-none"
+            id="section" required="">
+            <option>Верейская 29</option>
+            <option>Мытищи</option>
+            <option>Тушино</option>
+         </select>
+         <ul>
+            <li>
+               <a href="#" class="d-flex align-items-center text-decoration-none">
+                  <!-- Здесь можно добавить SVG-иконку -->
+                  Квартирография
+               </a>
+            </li>
+            <li>
+               <a href="#" class="d-flex align-items-center text-decoration-none">
+                  <!-- Здесь можно добавить SVG-иконку -->
+                  Настройки
+               </a>
+            </li>
+            <!-- Добавьте другие элементы списка по аналогии -->
+            <li>
+               <a href="#" class="d-flex align-items-center text-decoration-none">
+                  <!-- Здесь можно добавить SVG-иконку -->
+                  Модель
+               </a>
+            </li>
+         </ul>
+         <hr>
+         <!-- Здесь можно добавить блок с аватаркой и выпадающим меню -->
+         <div class="toggle-btn">&lt;</div>
+      </nav>
+      <div class="gap-2 justify-content-center py-5 ">
+         <div class="row ms-3">
+            <div class="col-md-auto">
+               <label for="section" class="form-label">Секция</label>
+               <select class="form-select" id="section" required="">
+                  <option value="">Выберите...</option>
+                  <option>Секция 1</option>
+                  <option>Секция 2</option>
+                  <option>Секция 3</option>
+               </select>
+               <div class="invalid-feedback">
+                  Пожалуйста, выберите действительную секцию.
+               </div>
+               <div class="col-md-auto ms-1">
+                  <input type="checkbox" class="form-check-input"
+                     id="same-address">
+                  <label class="form-check-label" for="same-address">Рассчитать
+                  все</label>
+               </div>
+            </div>
+            <div class="col-md-auto">
+               <label for="stage" class="form-label">Стадия</label>
+               <select class="form-select" id="stage" required="">
+                  <option value="">Выберите...</option>
+                  <option>Стадия 1</option>
+                  <option>Стадия 2</option>
+                  <option>Стадия 3</option>
+               </select>
+               <div class="invalid-feedback">
+                  Пожалуйста, выберите действительную стадию.
+               </div>
+            </div>
+         </div>
+         <div class="container mt-1">
+            <!--        <iframe src="https://speckle.xyz/embed?stream=d8e189df12&commit=f9a86a7553" width="1110" height="400" frameborder="0"></iframe>-->
+<!--            <iframe src="https://speckle.xyz/embed?stream=d8e189df12&commit=f9a86a7553&filter=%7B%7D&transparent=true&autoload=true&hidecontrols=true&hidesidebar=true&hideselectioninfo=true" width="1110" height="400" frameborder="0"></iframe>-->
+            <iframe src="https://speckle.xyz/embed?stream=d8e189df12&commit=f9a86a7553&filter=%7B%22propertyInfoKey%22%3A%22parameters.%D0%9A%D0%93_%D0%A2%D0%B8%D0%BF+%D0%BF%D0%BE%D0%BC%D0%B5%D1%89%D0%B5%D0%BD%D0%B8%D1%8F+%D0%BA%D0%BE%D1%80%D0%BE%D1%82%D0%BA%D0%B8%D0%B9.value%22%7D&transparent=true&autoload=true&hidecontrols=true&noscroll=true&hideselectioninfo=true" width="1100" height="400" frameborder="0"></iframe>
+         </div>
+         <div class="container mt-5">
+            <table class="table table-bordered fs-6">
+               <thead>
+                  <tr>
+                     <th>Квартира</th>
+                     <th>Минимум, кв. м</th>
+                     <th>Максимум, кв. м</th>
+                     <th>Средняя площадь, кв. м</th>
+                     <th>% от общего числа квартир в секции</th>
+                     <th>Количество квартир</th>
+                     <th>Общая площадь, кв. м</th>
+                     <th>% от общей площади секции</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr class="table-warning">
+                     <td>Studio ST-S</td>
+                     <td>22.1</td>
+                     <td>26.1</td>
+                     <td>23.3</td>
+                     <td>8%</td>
+                     <td>143</td>
+                     <td>3328.5</td>
+                     <td>3.58%</td>
+                  </tr>
+                  <tr class="table-warning">
+                     <td>Studio ST-M</td>
+                     <td>25.7</td>
+                     <td>30.4</td>
+                     <td>27.0</td>
+                     <td>6%</td>
+                     <td>120</td>
+                     <td>3240.1</td>
+                     <td>3.48%</td>
+                  </tr>
+                  <tr class="table-success">
+                     <td>1BR 1S</td>
+                     <td>30</td>
+                     <td>34.9</td>
+                     <td>33.2</td>
+                     <td>11%</td>
+                     <td>204</td>
+                     <td>6782.7</td>
+                     <td>7.29%</td>
+                  </tr>
+                  <tr class="table-success">
+                     <td>1BR 1М</td>
+                     <td>33.9</td>
+                     <td>43.2</td>
+                     <td>38.7</td>
+                     <td>12%</td>
+                     <td>228</td>
+                     <td>8831.3</td>
+                     <td>9.49%</td>
+                  </tr>
+                  <tr class="table-success">
+                     <td>1BR 1L</td>
+                     <td>41.4</td>
+                     <td>53</td>
+                     <td>44.0</td>
+                     <td>15%</td>
+                     <td>277</td>
+                     <td>12200.5</td>
+                     <td>13.11%</td>
+                  </tr>
+                  <tr class="table-success">
+                     <td>1BR 1XL</td>
+                     <td>46.1</td>
+                     <td>56.4</td>
+                     <td>50.1</td>
+                     <td>7%</td>
+                     <td>134</td>
+                     <td>6711.4</td>
+                     <td>7.21%</td>
+                  </tr>
+                  <tr class="table-primary">
+                     <td>2BR 2S</td>
+                     <td>52.2</td>
+                     <td>60.1</td>
+                     <td>54.9</td>
+                     <td>15%</td>
+                     <td>279</td>
+                     <td>15318.4</td>
+                     <td>16.46%</td>
+                  </tr>
+                  <tr class="table-primary">
+                     <td>2BR 2М</td>
+                     <td>53.3</td>
+                     <td>64.3</td>
+                     <td>59.2</td>
+                     <td>8%</td>
+                     <td>144</td>
+                     <td>8530.6</td>
+                     <td>9.17%</td>
+                  </tr>
+                  <tr class="table-primary">
+                     <td>2BR 2L</td>
+                     <td>62.6</td>
+                     <td>77.7</td>
+                     <td>68.7</td>
+                     <td>10%</td>
+                     <td>197</td>
+                     <td>13528.7</td>
+                     <td>14.54%</td>
+                  </tr>
+                  <tr class="table-danger">
+                     <td>3BR 3S</td>
+                     <td>74.9</td>
+                     <td>87.3</td>
+                     <td>80.2</td>
+                     <td>5%</td>
+                     <td>100</td>
+                     <td>8017.1</td>
+                     <td>8.61%</td>
+                  </tr>
+                  <tr class="table-danger">
+                     <td>3BR 3M</td>
+                     <td>85</td>
+                     <td>89.8</td>
+                     <td>86.1</td>
+                     <td>2%</td>
+                     <td>32</td>
+                     <td>2755.8</td>
+                     <td>2.96%</td>
+                  </tr>
+                  <tr class="table-danger">
+                     <td>3BR 3L</td>
+                     <td>91</td>
+                     <td>99.5</td>
+                     <td>93.5</td>
+                     <td>1%</td>
+                     <td>23</td>
+                     <td>2150.5</td>
+                     <td>2.31%</td>
+                  </tr>
+                  <tr class="table-info">
+                     <td>4BR 4S</td>
+                     <td>104.1</td>
+                     <td>104.1</td>
+                     <td>104.1</td>
+                     <td>1%</td>
+                     <td>16</td>
+                     <td>1665.6</td>
+                     <td>1.79%</td>
+                  </tr>
+               </tbody>
+               <tfoot>
+                  <tr>
+                     <th>Итого</th>
+                     <th>22.1</th>
+                     <th>104.1</th>
+                     <th>49.1</th>
+                     <th>100%</th>
+                     <th>100.00%</th>
+                     <th>1897</th>
+                     <th>93061.2</th>
+                  </tr>
+               </tfoot>
+            </table>
+         </div>
+      </div>
+      <div class="col-md-auto ms-auto me-0 d-flex align-items-end"
+         style="position: fixed; right: 20px; top: 80px;">
+         <div>
+            <label for="settings" class="form-label d-block mt-0">&nbsp;</label>
+            <button class="w-100 btn btn-primary btn-sm" type="submit">Скачать
+            отчет
+            </button>
+            <label for="settings" class="form-label d-block mt-0">&nbsp;</label>
+            <button class="w-100 btn btn-success btn-md" type="submit">Расчитать
+            </button>
+            <label for="settings" class="form-label d-block mt-0">&nbsp;</label>
+            <button class="w-100 btn btn-primary btn-sm" type="button" onclick="toggleModel()">Показать модель</button>
+         </div>
+      </div>
+      <div class="dropdown-menu">
+         <a href="#">Аккаунт</a>
+         <a href="#">Уведомления</a>
+         <a href="#">Выйти</a>
+      </div>
+      <script src="scripts.js"></script>
+
+
+
+   </body>
+
+</html>

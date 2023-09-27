@@ -11,12 +11,12 @@ class BaseDBModel(DeclarativeBase):
 
 DATABASE_URL = config('DATABASE_URL', default='your_default_database_url')
 engine = create_async_engine(DATABASE_URL)
-sessionmaker = async_sessionmaker(bind=engine)
+async_session = async_sessionmaker(bind=engine)
 
 
 @asynccontextmanager
 async def get_session():
-    session = sessionmaker()
+    session = async_session()
     try:
         yield session
         await session.commit()

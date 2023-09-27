@@ -13,7 +13,7 @@
         <tbody>
             {% for user in users %}
                 <tr>
-                    <td><a href="#" data-toggle="modal" data-target="#userModal{{ user.id }}">{{ user.username }}</a></td>
+                    <td><a href="#" data-toggle="modal" data-target="#userModal{{ user['id'] }}">{{ user['username'] }}</a></td>
                     <td>{{ user.email }}</td>
                     <td><button class="btn btn-primary"
                                 data-toggle="modal" data-target="#userModal-{{ user.id }}">Подробнее</button></td>

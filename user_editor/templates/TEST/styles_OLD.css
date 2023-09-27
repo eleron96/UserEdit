@@ -1,0 +1,138 @@
+  body {
+    margin: 0;
+    display: flex;
+  }
+  header {
+    padding-top: 80px;
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  .user-menu {
+    display: flex;
+    align-items: center;
+  }
+  .user-menu div {
+    margin-right: 20px; /* Добавлен отступ справа от "Пользователь" */
+  }
+  .hamburger-menu {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+  .hamburger-menu div {
+    width: 30px;
+    height: 4px;
+    background-color: #000;
+  }
+  .sidebar {
+    width: 280px;
+    height: 100vh;
+    background-color: #f8f9fa; /* Изменен цвет фона */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    padding: 20px; /* Добавлен внутренний отступ */
+    transition: width 0.3s;
+  }
+  .sidebar.collapsed {
+    width: 60px;
+  }
+  .sidebar a {
+    display: flex;
+    align-items: center;
+    padding: 10px 0; /* Изменен отступ */
+    color: #000; /* Изменен цвет текста */
+    text-decoration: none;
+    font-size: 18px;
+  }
+  .sidebar a:hover {
+    background-color: #e2e6ea; /* Изменен цвет фона при наведении */
+  }
+  .sidebar .toggle-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 10px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  .content {
+    margin-left: 280px; /* Изменена ширина отступа */
+    padding: 80px 20px 20px 20px;
+    flex-grow: 1;
+    transition: margin-left 0.3s;
+  }
+  .content.collapsed {
+    margin-left: 60px;
+  }
+  .sidebar hr {
+    margin: 20px 0; /* Добавлены отступы для горизонтальной линии */
+  }
+  .sidebar ul {
+    list-style-type: none; /* Убраны маркеры списка */
+    padding: 0; /* Убраны отступы списка */
+  }
+  .sidebar ul li {
+    margin: 10px 0; /* Добавлены отступы для элементов списка */
+  }
+    .user-hamburger-menu {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    margin-left: 20px; /* Добавлен отступ слева */
+  }
+  .user-hamburger-menu div {
+    width: 30px;
+    height: 4px;
+    background-color: #000;
+  }
+  .dropdown-menu {
+    position: absolute;
+    top: 60px; /* Установлено расположение меню ниже шапки */
+    right: 20px; /* Установлено расположение меню справа */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: none; /* По умолчанию меню скрыто */
+  }
+  .dropdown-menu.active {
+    display: block; /* При активации класса меню становится видимым */
+  }
+  .dropdown-menu a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #000;
+  }
+  .dropdown-menu a:hover {
+    background-color: #f0f0f0;
+  }
+  table {
+    font-size: 10px; /* Размер текста в таблице */
+    transform: scale(0.65); /* Уменьшение размера текста в 1,5 раза */
+    transform-origin: 0 0; /* Настройка точки масштабирования */
+  }
+  thead th {
+  font-size: 18px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+nav.sidebar {
+    margin-top: 50px; /* Увеличьте или уменьшите значение, чтобы адаптировать под высоту хедера */
+}
